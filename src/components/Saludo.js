@@ -1,5 +1,5 @@
 import React from 'react'
 
-const Saludo = () => <p>Hola mundo!</p>
+const Saludo = (props) => <p>Hola {props.nombre}</p>
 
 export default Saludo;
