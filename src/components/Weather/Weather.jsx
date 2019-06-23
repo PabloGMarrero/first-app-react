@@ -13,8 +13,6 @@ class Weather extends Component {
         }
     }
 
-
-
     componentDidMount() {
         fetch(`https://api.apixu.com/v1/forecast.json?key=${
             process.env.REACT_APP_API_KEY
@@ -35,7 +33,7 @@ class Weather extends Component {
                 <div className="container">
                     <Top current={current} location={location}>Hola</Top>
                     <Bottom forecast={forecast}></Bottom>
-                    
+
                 </div>
             </div>
         ) : (
