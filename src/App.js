@@ -42,17 +42,19 @@ class App extends Component {
       <div className="App">
         <div className="container">
           <div className="top">
+
             <img src={logo} alt="Clima principal" className="image" />
-            <p className="temp">25 °C</p>
-            <h2 className="city">Buenos Aires, CABA, Argentina</h2>
-            <div className="feelslike">ST: 25.4 °C, H: 81 %</div>
+            <p className="temp">{current.temp_c}</p>
+            <h2 className="city">{location.name}, {location.region}, {location.country}</h2>
+            <div className="feelslike">ST: {current.feelslike_c} °C, H: {current.humedity} %</div>
           </div>
+
           <div className="bottom">
             {forecast.forecastday.map(aDay => {
               return (<div className="card" key={aDay.date}>
               <h5>{this.getWeekDay(aDay.date_epoch)}</h5>
               <h6>{aDay.date}</h6>
-              <img src={logo} alt="Clima diario" className="imagebottom" />
+              <img src={aDay.day.condition.icon} alt="Clima diario" className="imagebottom" />
               <div className="minmax">
                 <p>
                   <span className="tempmax" />
