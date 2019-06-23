@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 import Top from "../Top/top"
-
-
-const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+import Bottom from "../Bottom/bottom"
 
 class Weather extends Component {
 
@@ -13,9 +11,9 @@ class Weather extends Component {
             clima: {},
             isLoaded: false
         }
-
-        this.getWeekDay = this.getWeekDay.bind(this);
     }
+
+
 
     componentDidMount() {
         fetch(`https://api.apixu.com/v1/forecast.json?key=${
@@ -28,10 +26,6 @@ class Weather extends Component {
     }
 
 
-    getWeekDay(date) {
-        return days[new Date(date * 1000).getDay()];
-    }
-
     render() {
         const { location, current, forecast } = this.state.clima;
 
@@ -40,28 +34,8 @@ class Weather extends Component {
             <div className="App">
                 <div className="container">
                     <Top current={current} location={location}>Hola</Top>
-
-                    <div className="bottom">
-                        {forecast.forecastday.map(aDay => {
-                            return (<div className="card" key={aDay.date}>
-                                <h5>{this.getWeekDay(aDay.date_epoch)}</h5>
-                                <h6>{aDay.date}</h6>
-                                <img src={aDay.day.condition.icon} alt="Clima diario" className="imagebottom" />
-                                <div className="minmax">
-                                    <p>
-                                        <span className="tempmax" />
-                                        {aDay.day.maxtemp_c}
-                                    </p>
-                                    <p>
-                                        <span className="tempmin" />
-                                        {aDay.day.mintemp_c}
-                                    </p>
-                                </div>
-                            </div>)
-
-                        })}
-
-                    </div>
+                    <Bottom forecast={forecast}></Bottom>
+                    
                 </div>
             </div>
         ) : (
