@@ -10,7 +10,7 @@ const Day = (props) => {
 
     const convertDateToDDMMYYY = (date) => {
         const aDate = new Date(date);
-        const day = aDate.getDate();
+        const day = aDate.getDate()+1;
         let month = aDate.getMonth()+ 1  ;
         if (month<10) month = '0'+month;
         const year = aDate.getFullYear();
