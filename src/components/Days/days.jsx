@@ -8,10 +8,19 @@ const Day = (props) => {
         return days[new Date(date * 1000).getDay()];
     }
 
+    const convertDateToDDMMYYY = (date) => {
+        const aDate = new Date(date);
+        const day = aDate.getDate();
+        let month = aDate.getMonth()+ 1  ;
+        if (month<10) month = '0'+month;
+        const year = aDate.getFullYear();
+        return  day+ '/' + month + '/' + year;
+    }
+
     return (
         <div className="card" key={aDay.date}>
             <h5>{getWeekDay(aDay.date_epoch)}</h5>
-            <h6>{aDay.date}</h6>
+            <h6>{convertDateToDDMMYYY(aDay.date)}</h6>
             <img src={aDay.day.condition.icon} alt="Clima diario" className="imagebottom" />
             <div className="minmax">
                 <p>
