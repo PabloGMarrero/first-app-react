@@ -15,7 +15,7 @@
 }
 
 .container {
-  width: 900px;
+  width: 1100px;
   height: 600px;
   border-radius: 20px;
   box-shadow: 5px 5px 25px #888888;
@@ -71,7 +71,6 @@
   height: 0;
   border-left: 15px solid transparent;
   border-right: 15px solid transparent;
-
   border-bottom: 15px solid #ff4136;
   margin-top: -25px;
 }
@@ -92,7 +91,7 @@
   grid-area: bottom;
   background: #fff;
   color: #282c34;
-  grid-template-columns: 150px 150px 150px 150px 150px 150px;
+  grid-template-columns: 182px 182px 182px 182px 182px 182px;
   grid-template-rows: auto;
 }
 
