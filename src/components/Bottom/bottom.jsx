@@ -9,7 +9,7 @@ const Bottom = (props) => {
         <div className="bottom">
             {forecast.forecastday.map(aDay => {
                 return (
-                    <Day aDay={aDay}></Day>
+                    <Day aDay={aDay} key={aDay.date}></Day>
                 )
 
             })}

@@ -18,7 +18,7 @@ const Day = (props) => {
     }
 
     return (
-        <div className="card" key={aDay.date}>
+        <div className="card">
             <h5>{getWeekDay(aDay.date_epoch)}</h5>
             <h6>{convertDateToDDMMYYY(aDay.date)}</h6>
             <img src={aDay.day.condition.icon} alt="Clima diario" className="imagebottom" />
